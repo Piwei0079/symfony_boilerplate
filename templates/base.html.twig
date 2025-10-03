@@ -8,27 +8,31 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
         {% endblock %}
+
+         {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
     </head>
     <body>
-    <header class="w-1/3">
-        <nav class="w-1/3">
-            <ul class="flex items-center justify-evenly list-none no-underline hover:underline"> 
+    <header class="">
+        <nav class="">
+            <ul class="flex flex-row items-center justify-evenly list-none no-underline hover:no-underline"> 
                 <li>
-                    <a href="{{ path('accueil') }}" class="no-underline hover:underline">Accueil</a>
+                    <a href="{{ path('home') }}" class="text-blue-600  visited:!text-blue-600 no-underline hover:no-underline hover:text-gray-600 visited:none">Accueil</a>
                 </li>
                 <li>
-                    <a href="{{ path('burgers_list') }}" class="no-underline hover:underline">Burgers</a>
+                    <a href="{{ path('burger_list') }}" class="text-blue-600  visited:!text-blue-600 no-underline hover:no-underline hover:text-gray-600 visited:none">Burgers</a>
                 </li> 
             </ul>
         </nav>
     </header>
   
       
-        <main>
-         {% block content %} 
-            
-            {% endblock %}
-        </main>
+      <body>
+        {% block body %}
+        
+        {% endblock %}
+    </body>
 
     </body>
 </html>

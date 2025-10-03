@@ -6,13 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+use App\Entity\Burger;
 
-class HomeController extends AbstractController
+final class BurgersController extends AbstractController
 {
-    #[Route('/home', name: 'home')]
+    #[Route('/burgers', name: 'app_burgers')]
     public function index(): Response
     {
-        return $this->render('base.html.twig');
+        return $this->render('burgers/index.html.twig', [
+            'controller_name' => 'BurgersController',
+        ]);
     }
 }
-?>

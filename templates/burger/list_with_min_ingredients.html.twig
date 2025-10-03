@@ -1,0 +1,24 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Burgers avec au moins {{ minIngredients }} ingrédients{% endblock %}
+
+{% block body %}
+    <h1>Burgers avec au moins {{ minIngredients }} ingrédients</h1>
+
+    {% if burgers is not empty %}
+        <ul>
+            {% for burger in burgers %}
+                <li>
+                    <h2><a href="{{ path('burger_detail', {'id': burger.id}) }}">{{ burger.name }}</a></h2>
+                    <p>Prix : {{ burger.price|format_currency('EUR') }}</p>
+                    {# Vous pouvez ajouter plus de détails sur les ingrédients ici si vous le souhaitez #}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun burger trouvé avec au moins {{ minIngredients }} ingrédients.</p>
+    {% endif %}
+
+    <p><a href="{{ path('burger_list') }}">← Retour à la liste de tous les burgers</a></p>
+{% endblock %}

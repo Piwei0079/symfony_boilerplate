@@ -2479,3 +2479,101 @@
     }
   }
 }
+
+
+.burger-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #d35400;
+}
+
+.burger-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.burger-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f8f8;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.burger-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.burger-name {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.burger-link {
+  text-decoration: none;
+  color: white;
+  background: #e67e22;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.burger-link:hover {
+  background: #d35400;
+}
+
+.burger-detail {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fdfdfd;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.burger-detail-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #d35400;
+}
+
+.burger-detail-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.burger-detail-description {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  color: #2c3e50;
+}
+
+.burger-detail-price {
+  font-size: 1.2rem;
+  color: #27ae60;
+  margin-bottom: 1.5rem;
+}
+
+.burger-back {
+  display: inline-block;
+  text-decoration: none;
+  background: #e67e22;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.burger-back:hover {
+  background: #d35400;
+}

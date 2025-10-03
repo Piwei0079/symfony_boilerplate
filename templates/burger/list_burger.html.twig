@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="burger-title"> 
+           
+        Nos Burgers</h2>
+    <ul class="burger-list">
+        {% for burger in burgers %}
+            <li class="burger-item">
+                <span class="burger-name">{{ burger.name }}</span>
+                <a class="burger-link" href="{{ path('burger_detail', {'id': burger.id}) }}">
+                    Voir le détail
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

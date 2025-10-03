@@ -1,0 +1,21 @@
+    {% extends 'base.html.twig' %}
+
+    {% block title %}Burgers avec {{ ingredient_type }} : {{ ingredient_name }}{% endblock %}
+
+    {% block body %}
+        <h1>Burgers avec {{ ingredient_type }} : "{{ ingredient_name }}"</h1>
+
+        {% if burgers is not empty %}
+            <ul>
+                {% for burger in burgers %}
+                    {# Lien vers la page de détail du burger #}
+                    <li><a href="{{ path('burger_detail', {id: burger.id}) }}">{{ burger.name }}</a> - {{ burger.price|number_format(2, ',', ' ') }} €</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun burger trouvé avec {{ ingredient_type }} : "{{ ingredient_name }}".</p>
+        {% endif %}
+
+        <p><a href="{{ path('burger_list') }}">← Retour à la liste de tous les burgers</a></p>
+    {% endblock %}
+

@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="burger-detail">
+        <h2 class="burger-detail-title">{{ burger.name }}</h2>
+
+        {% if burger.image %}
+            <img class="burger-detail-image" src="{{ asset( burger.image.url) }}" alt="{{ burger.name }}">
+        {% endif %}
+
+       <p class="burger-detail-description">
+                {# Check if the Burger has any comments and if the first one exists #}
+                {% if burger.commentaire is not empty and burger.commentaire[0] is defined %}
+                    {# Display the 'contenu' property of the first Commentaire entity #}
+                    {{ burger.commentaire[0].contenu }}
+                {% else %}
+                    {# Fallback message if no comments are found #}
+                    Pas de commentaire/description disponible. {# Or a message like "Aucun commentaire pour ce burger." #}
+                {% endif %}
+            </p>
+         <p>
+            Pain :
+            {# Vérifie si le burger a un pain associé #}
+            {% if burger.pain is not null %}
+                {{ burger.pain.name }} {# Affiche le nom du pain (assurez-vous que l'entité Pain a une méthode getName()) #}
+            {% else %}
+                Non spécifié
+            {% endif %}
+        </p>
+
+        {# Affichage des Sauces #}
+        <p>
+            Sauce(s) :
+            {# Vérifie si le burger a des sauces #}
+            {% if burger.sauce is not empty %}
+                {# Boucle sur chaque sauce associée au burger #}
+                {% for sauce in burger.sauce %}
+                    {{ sauce.name }}{% if not loop.last %}, {% endif %} {# Affiche le nom de la sauce et ajoute une virgule si ce n'est pas la dernière #}
+                {% endfor %}
+            {% else %}
+                Aucune sauce
+            {% endif %}
+        </p>
+
+        {# Affichage des Oignons #}
+        <p>
+            Oignon(s) :
+            {# Vérifie si le burger a des oignons #}
+            {% if burger.oignon is not empty %}
+                {# Boucle sur chaque oignon associé au burger #}
+                {% for oignon in burger.oignon %}
+                    {{ oignon.name }}{% if not loop.last %}, {% endif %} {# Affiche le nom de l'oignon et ajoute une virgule si ce n'est pas le dernier #}
+                {% endfor %}
+            {% else %}
+                Aucun oignon
+            {% endif %}
+        </p>
+
+        <p class="burger-detail-price">
+            Prix : <strong>{{ burger.price|number_format(2, ',', ' ') }} €</strong>
+        </p>
+
+        <a class="burger-back" href="{{ path('burger_list') }}">← Retour à la liste</a>
+    </div>
+{% endblock %}
+

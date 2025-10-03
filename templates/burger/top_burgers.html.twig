@@ -1,0 +1,25 @@
+{# templates/burger/top_burgers.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Top {{ limit }} Burgers les plus chers{% endblock %}
+
+{% block body %}
+    <h1>Les {{ limit }} burgers les plus chers</h1>
+
+    {% if burgers is not empty %}
+        <ul>
+            {% for burger in burgers %}
+                {# Lien vers la page de détail du burger #}
+                <li>
+                    <a href="{{ path('burger_detail', {id: burger.id}) }}">{{ burger.name }}</a> - {{ burger.price|number_format(2, ',', ' ') }} €
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun burger trouvé.</p> {# Cela ne devrait pas arriver si vous avez des burgers #}
+    {% endif %}
+
+    {# Optionnel: Lien de retour vers la liste complète ou la page d'accueil #}
+    <p><a href="{{ path('burger_list') }}">← Retour à la liste de tous les burgers</a></p>
+{% endblock %}
